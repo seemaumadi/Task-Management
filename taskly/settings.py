@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
+import dj_database_url
 
 from pathlib import Path
 
@@ -78,19 +79,12 @@ WSGI_APPLICATION = 'taskly.wsgi.application'
 
 
 
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydb',
-        'USER' : 'root',
-        'PASSWORD' : 'password',
-        'PORT': 3306,
-        'HOST' : '127.0.0.1',
-    
-
-    }
+    'default': dj_database_url.config(
+        default='mysql://admin:admin12345@db/database1'
+    )
 }
+
 
 
 

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: database1
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin12345
+    ports:
+      - "3307:3306"
+    networks:
+      - mynetwork
+
+  web:
+    build: .
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: mysql://admin:admin12345@db/database1
+    ports:
+      - "8081:8000"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
+
+
