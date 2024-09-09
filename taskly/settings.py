@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'taskly.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME', 'mydatabase'),
-        'USER': os.getenv('DB_USER', 'myuser'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'mypassword'),
+        'NAME': os.getenv('DB_NAME', 'database'),
+        'USER': os.getenv('DB_USER', 'admin'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'admin12345'),
         'HOST': os.getenv('DB_HOST', 'db'),  # This should match the service name in Docker Compose
         'PORT': os.getenv('DB_PORT', '3308'),
     }
