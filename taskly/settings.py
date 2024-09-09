@@ -77,27 +77,23 @@ WSGI_APPLICATION = 'taskly.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-'''
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-'''
 
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database',
-        'USER': 'admin',  
-        'PASSWORD': 'admin12345',  
-        'HOST': 'database.c5uymeiaajgp.ap-south-1.rds.amazonaws.com',
-        'PORT': '3306',  
+        'NAME': 'mydb',
+        'USER' : 'root',
+        'PASSWORD' : 'password',
+        'PORT': 3306,
+        'HOST' : '127.0.0.1',
+    
+
     }
 }
+
+
+
 
 
 # Password validation
