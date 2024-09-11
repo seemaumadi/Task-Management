@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'taskly.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "mydb",
-        'USER': "root",
-        'PASSWORD': "password",
-        'HOST': "localhost",
+        'NAME': "database1",
+        'USER': "admin",
+        'PASSWORD': "admin12345",
+        'HOST': "database1.c5uymeiaajgp.ap-south-1.rds.amazonaws.com",
         'PORT': 3306,
     }
 }
