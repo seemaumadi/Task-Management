@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,19 +79,17 @@ WSGI_APPLICATION = 'taskly.wsgi.application'
 
 
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydb',
-        'USER' : 'root',
-        'PASSWORD' : 'password',
+        'NAME': "mydb",
+        'USER': "root",
+        'PASSWORD': "password",
+        'HOST': "localhost",
         'PORT': 3306,
-        'HOST' : '127.0.0.1',
-    
-
     }
 }
+
 
 
 
