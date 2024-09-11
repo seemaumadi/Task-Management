@@ -6,9 +6,11 @@ Django==5.1.1
 django-bootstrap-datepicker-plus==5.0.5
 django-storages==1.14.4
 git-filter-repo==2.45.0
+gunicorn==23.0.0
 jmespath==1.0.1
 mysql-connector-python==9.0.0
 mysqlclient==2.2.4
+packaging==24.1
 psycopg2==2.9.9
 pydantic==2.9.0
 pydantic_core==2.23.2
