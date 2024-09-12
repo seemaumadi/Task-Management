@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-ayc&#x@+xf)ta84+x794noruvp#e4m)^b_cu5tnr!(#6aj44ja
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'taskly.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "mydb",
-        'USER': "root",
-        'PASSWORD': "password",
-        'HOST': "localhost",
+        'NAME': "database1",
+        'USER': "admin",
+        'PASSWORD': "admin12345",
+        'HOST': "database1.c5uymeiaajgp.ap-south-1.rds.amazonaws.com",
         'PORT': 3306,
     }
 }
