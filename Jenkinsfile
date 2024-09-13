@@ -34,7 +34,7 @@ pipeline {
                     def oldImageRepo = 'application'
                     def oldImageTag = 'django'
                     def newImageRepo = 'seema24/web-app'
-                    def newTag = 'v1.0.0'
+                    def newTag = 'latest'
                     
                     // Tag the Docker image
                     sh "docker tag ${oldImageRepo}:${oldImageTag} ${newImageRepo}:${newTag}"
