@@ -1,6 +1,6 @@
-from django.urls import path, include
+from django.urls import path
 from . import views
-from django_prometheus import exports
+
 urlpatterns = [
 
     path('register', views.register, name="register"),
@@ -23,7 +23,7 @@ urlpatterns = [
 
     path('logout', views.user_Logout, name= "logout"),
 
-    path('metrics/', exports.ExportToDjangoView.as_view(), name='metrics'),
+    
 
     
 
