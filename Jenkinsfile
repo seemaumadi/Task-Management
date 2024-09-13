@@ -1,10 +1,5 @@
 pipeline {
     agent any
-        docker {
-            image 'python:3.12' // Or any image that fits your Python version and dependencies
-            args '-u root'      // To ensure root-level commands inside the container
-        }
-    }
     stages {
         stage('Checkout Code') {
             steps {
