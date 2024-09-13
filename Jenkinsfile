@@ -33,10 +33,11 @@ pipeline {
                     // Use the actual image name and tag from the build output
                     
                     def newImageRepo = 'seema24/web-app'
-                    def newTag = 'latest'
+                    def newImageTag = 'latest'
+                    def newTag = 'v1.0.0'
                     
                     // Tag the Docker image
-                    sh "docker tag ${newImageRepo}:${newTag}"
+                    sh "docker tag ${newImageRepo}:${newImageTag} ${newImageRepo}:${newTag}"
                 }
             }
         }
