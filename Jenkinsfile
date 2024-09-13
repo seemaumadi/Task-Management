@@ -31,8 +31,8 @@ pipeline {
             steps {
                 script {
                     // Replace with your actual image name and tag
-                    def imageName = 'seema24/web-app'
-                    def newTag = 'v1.0.0'
+                    def imageName = 'seema24/application'
+                    def newTag = 'django'
                     
                     // Tag the Docker image
                     sh "docker tag ${imageName}:latest ${imageName}:${newTag}"
