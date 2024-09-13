@@ -52,6 +52,15 @@ pipeline {
                 }
             }
         }
+        stage('Run Migrations') {
+            steps {
+                script {
+                    // Run Django database migrations
+                    sh 'docker-compose -f docker-compose.yml run --rm app python manage.py migrate'
+                }
+            }
+        }
+
     }
     
 }
