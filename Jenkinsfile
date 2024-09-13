@@ -76,6 +76,16 @@ pipeline {
                 }
             }
         }
+        stage('Deploy') {
+            steps {
+                script {
+                    // Deploy application (e.g., pull new images and restart containers)
+                    // This will depend on your deployment strategy, such as using Docker Compose to restart the stack
+                    sh 'docker-compose -f docker-compose.yml down'
+                    sh 'docker-compose -f docker-compose.yml up -d'
+                }
+            }
+        }
 
     }
     
