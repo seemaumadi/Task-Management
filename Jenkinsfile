@@ -17,5 +17,16 @@ pipeline {
                     sh 'docker-compose -f docker-compose.yml build'
                 }
             }
+        stage('Docker Compose Push') {
+            steps {
+                script {
+                    // Log in to Docker registry
+                    docker.withRegistry('https://hub.docker.com/', 'docker') {
+                        // Push Docker images to registry using Docker Compose
+                        sh 'docker-compose -f docker-compose.yml push'
+                    }
+                }
+            }
+        }
     }
 }
