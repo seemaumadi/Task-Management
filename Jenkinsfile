@@ -60,6 +60,22 @@ pipeline {
                 }
             }
         }
+        stage('Collect Static Files') {
+            steps {
+                script {
+                    // Collect Django static files
+                    sh 'docker-compose -f docker-compose.yml run --rm app python manage.py collectstatic --noinput'
+                }
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                script {
+                    // Run Django tests
+                    sh 'docker-compose -f docker-compose.yml run --rm app python manage.py test'
+                }
+            }
+        }
 
     }
     
