@@ -12,3 +12,4 @@ services:
     command: gunicorn taskly.wsgi:application --bind 0.0.0.0:8000
     environment:
       - DJANGO_SETTINGS_MODULE=taskly.settings  
+    user: root
