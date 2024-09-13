@@ -35,7 +35,7 @@ pipeline {
                     def newTag = 'django'
                     
                     // Tag the Docker image
-                    sh "docker tag ${imageName}:latest ${imageName}:${newTag}"
+                    sh "docker tag ${imageName}:django ${imageName}:${newTag}"
                 }
             }
         }
