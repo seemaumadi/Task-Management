@@ -5,6 +5,7 @@ botocore==1.35.14
 Django==4.2.16
 django-bootstrap-datepicker-plus==5.0.5
 django-storages==1.14.4
+django-prometheus
 git-filter-repo==2.45.0
 gunicorn==23.0.0
 jmespath==1.0.1
