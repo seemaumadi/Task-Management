@@ -1,59 +1,81 @@
-Documentation: Setting Up a Django Application Locally
-1. Prerequisites
-Before setting up the Django application locally, make sure you have the following installed:
+***********************************************************************Task Management Application Documentation**************************************************************************************************
+Overview:
+The Task Management Application is a web-based tool developed using the Django framework, designed to help users manage their tasks efficiently. The application allows users to perform key actions such as creating, updating, deleting, and viewing tasks. The backend is powered by Django, and the frontend can be built using HTML, CSS, and JavaScript or any modern front-end framework.
 
-Python (version 3.8+ recommended)
-pip (Python package manager)
-Git (for cloning the repository)
-MySQL database 
+This documentation provides an overview of the application features, architecture, and guides for setting up and using the application.
 
+Key Features
+1.User Authentication:
 
-2. Clone the Repository
-First, clone the repository from GitHub.
+-Users can register, log in, and log out.
+-Password management and secure authentication are handled by Django’s authentication system.
 
-git clone https://github.com/seemaumadi/Task-management.git
+2.Task Creation & Management:
+
+Users can create new tasks, specifying details such as title, description, due date, and priority.
+Tasks can be marked as completed or in progress.
+
+3.Task Editing:
+
+Users can edit the details of existing tasks.
+
+4.Task Deletion:
+
+Users can delete tasks they no longer need.
+
+5.Responsive Design:
+
+The application is designed to be responsive, ensuring a smooth user experience on both mobile and desktop devices.
+
+******Logging & Monitoring*********
+
+The system implements logging for tracking important actions and errors.
+Metrics for API response times and error rates can be collected and visualized.
+
+******************************************************************************System Architecture******************************************************************************************************************
+
+1. Frontend:
+-HTML/CSS/JavaScript used
+-The frontend communicates with the backend using API endpoints.
+
+2. Backend:
+-The backend is built using Django, a high-level Python web framework.
+-MySQL is used as the database to store task information, user data, and other related entities.
+
+3. Database:
+MySQL Database: Stores all the tasks, user details, and related entities.
+
+-Tables:
+ -users: Stores user authentication information.
+-tasks: Stores task-related details such as title, description, due date, and status.
+
+4. Deployment:
+-The application  containerized using Docker for simplified deployment.
+-Jenkins or other CI/CD tools used for continuous integration and deployment.
+-Monitoring with Prometheus and Grafana is implemented for real-time performance and error tracking.
+
+******************************************************************************************* Setup Instruction******************************************************************************************************
+
+Prerequisites=
+--Python 3.x
+--Django 3.x or higher
+--MySQL Database (here I used RDS service )
+--Docker (for containerized deployment)
+
+**************************************************************************************************************************************************************************************************************
+--Installation SetUp
+
+git clone https://github.com/seemaumadi/Task-management
 cd Task-management
-
-3/Set Up a Virtual Environment 
-Creating a virtual environment helps isolate your Python environment for the project.
-
-# Install virtualenv if you haven't
-pip install virtualenv
-
-# Create a virtual environment
-python3 -m venv venv
-
-# Activate the virtual environment (Linux/MacOS)
-source venv/bin/activate
-
-# Activate the virtual environment (Windows)
-venv\Scripts\activate
-
-4. Install Project Dependencies
-After activating the virtual environment, install the dependencies from the requirements.txt file:
-
+virtualenv venv
+venv/scripts/activate
 pip install -r requirements.txt
-
-5.Run Migrations
-Run Django’s database migrations to create the necessary tables:
-
 python manage.py migrate
-
-6.Create a Superuser 
-Create a superuser to access the Django admin interface:
-
 python manage.py createsuperuser
-
-Follow the prompts to create the admin user.
-
-7.Run the Development Server
-Start the Django development server locally:
-
+--- enter name, - enter email and password
 python manage.py runserver
-By default, the application will run on http://127.0.0.1:8000/. Open this in your web browser to view the application.
 
-8. Access the Django Admin Interface
-You can access the Django admin interface at:
+access the application
+for admin page use (/admin)
 
-http://127.0.0.1:8000/admin/
-Log in using the superuser credentials you created earlier.
+
