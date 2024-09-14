@@ -78,4 +78,5 @@ python manage.py runserver
 access the application
 for admin page use (/admin)
 
+If you face error 500 then go to setting.py file DEBUG = True //set debug true (its for developer environment)
 
