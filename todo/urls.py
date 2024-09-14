@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from . import views
 
 urlpatterns = [
@@ -24,6 +24,8 @@ urlpatterns = [
     path('logout', views.user_Logout, name= "logout"),
 
     path('my-view/', views.my_view, name='my_view'),
+
+    path('metrics/', include('django_prometheus.urls')),
 
     
 

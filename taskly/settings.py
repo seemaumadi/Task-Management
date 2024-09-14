@@ -39,12 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'django_prometheus',
     'todo',
 ]
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django_prometheus.middleware.PrometheusBeforeMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -79,14 +80,13 @@ WSGI_APPLICATION = 'taskly.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "database1",
-        'USER': "admin",
-        'PASSWORD': "admin12345",
-        'HOST': "database1.c5uymeiaajgp.ap-south-1.rds.amazonaws.com",
+        'NAME': "mydb",
+        'USER': "root",
+        'PASSWORD': "password",
+        'HOST': "localhost",
         'PORT': 3306,
     }
 }
