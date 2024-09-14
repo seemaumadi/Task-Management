@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -25,7 +25,7 @@ urlpatterns = [
 
     path('my-view/', views.my_view, name='my_view'),
 
-    path('metrics/', include('django_prometheus.urls')),
+    
 
     
 
