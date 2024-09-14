@@ -22,11 +22,5 @@ urlpatterns = [
     path('delete-task/<str:pk>/', views.deleteTask, name= "delete-task"),
 
     path('logout', views.user_Logout, name= "logout"),
-
-    path('my-view/', views.my_view, name='my_view'),
-
     
-
-    
-
 ]
