@@ -185,20 +185,4 @@ def user_Logout(request):
     return redirect("")
 
 
-#logging 
-
-import logging
-
-logger = logging.getLogger('django')
-
-import logging
-logger = logging.getLogger('django')
-
-def my_view(request):
-    try:
-        # Some code that may cause an error
-        raise ValueError("This is a test error!")
-    except Exception as e:
-        logger.error("An error occurred: %s", e)
-    return HttpResponse("Logging test")
 
