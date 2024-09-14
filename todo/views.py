@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseServerError
 from django.contrib import messages
 
 
@@ -14,12 +14,12 @@ from .models import Task
 
 # Create your views here.
 
-
+#function for home
 def home(request):
 
     return render(request, 'index.html')
 
-
+#function for register
 def register(request):
 
     form = CreateUserForm()
@@ -38,6 +38,7 @@ def register(request):
 
     return render(request, 'register.html', context=context)    
 
+#function for login
     
 def my_login(request):
 
@@ -73,11 +74,14 @@ def my_profile(request):
     pass
 
 
+#function for dashboard
 @login_required(login_url="my-login")
 def dashboard(request):
     
     return render(request, 'profile/dashboard.html')
 
+
+#function for profile-manage
 @login_required(login_url="my-login")
 def profile_manage(request):
     
@@ -100,7 +104,7 @@ def profile_manage(request):
 
     
 
-
+#function for create-task
 @login_required(login_url="my-login")
 def createTask(request):
     form = CreateTaskForm()
@@ -124,6 +128,7 @@ def createTask(request):
     return render(request, 'profile/create-task.html', context=context)
 
 
+# function for view-task
 @login_required(login_url="my-login")
 def viewTask(request):
     
@@ -135,7 +140,7 @@ def viewTask(request):
 
     return render(request, 'profile/view-tasks.html', context=context)
 
-
+#function for update-task
 @login_required(login_url="my-login")
 def updateTask(request, pk):
 
@@ -157,6 +162,7 @@ def updateTask(request, pk):
     
     return render(request, 'profile/update-task.html', context=context)
 
+#function for delete-task
 def deleteTask(request, pk):
 
     task = Task.objects.get(id=pk)
@@ -171,12 +177,28 @@ def deleteTask(request, pk):
 
 
 
-
+#function for logout
 def user_Logout(request):
 
     auth.logout(request)
 
     return redirect("")
 
-    
+
+#logging 
+
+import logging
+
+logger = logging.getLogger('django')
+
+import logging
+logger = logging.getLogger('django')
+
+def my_view(request):
+    try:
+        # Some code that may cause an error
+        raise ValueError("This is a test error!")
+    except Exception as e:
+        logger.error("An error occurred: %s", e)
+    return HttpResponse("Logging test")
 

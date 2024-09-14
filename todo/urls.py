@@ -23,7 +23,7 @@ urlpatterns = [
 
     path('logout', views.user_Logout, name= "logout"),
 
-    
+    path('my-view/', views.my_view, name='my_view'),
 
     
 
