@@ -1,8 +1,9 @@
-***********************************************************************Task Management Application Documentation**************************************************************************************************
+************************************** Task Management Application Documentation ****************************************************
 Overview:
+
 The Task Management Application is a web-based tool developed using the Django framework, designed to help users manage their tasks efficiently. The application allows users to perform key actions such as creating, updating, deleting, and viewing tasks. The backend is powered by Django, and the frontend can be built using HTML, CSS, and JavaScript or any modern front-end framework.
 
-This documentation provides an overview of the application features, architecture, and guides for setting up and using the application.
+--This documentation provides an overview of the application features, architecture, and guides for setting up and using the application.
 
 Key Features
 1.User Authentication:
@@ -32,7 +33,7 @@ The application is designed to be responsive, ensuring a smooth user experience 
 The system implements logging for tracking important actions and errors.
 Metrics for API response times and error rates can be collected and visualized.
 
-******************************************************************************System Architecture******************************************************************************************************************
+*************************************************** SystemArchitecture *****************************************************************
 
 1. Frontend:
 -HTML/CSS/JavaScript used
@@ -54,7 +55,7 @@ MySQL Database: Stores all the tasks, user details, and related entities.
 -Jenkins or other CI/CD tools used for continuous integration and deployment.
 -Monitoring with Prometheus and Grafana is implemented for real-time performance and error tracking.
 
-******************************************************************************************* Setup Instruction******************************************************************************************************
+************************************** SetupInstruction*********************************************************************************
 
 Prerequisites=
 --Python 3.x
@@ -62,7 +63,7 @@ Prerequisites=
 --MySQL Database (here I used RDS service )
 --Docker (for containerized deployment)
 
-**************************************************************************************************************************************************************************************************************
+****************************************************************************************************************************************
 --Installation SetUp
 
 git clone https://github.com/seemaumadi/Task-management
@@ -80,3 +81,4 @@ for admin page use (/admin)
 
 If you face error 500 then go to setting.py file DEBUG = True //set debug true (its for developer environment)
 
+***************************************************************************************************************************************
