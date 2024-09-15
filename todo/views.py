@@ -21,16 +21,17 @@ def metrics_view(request):
     
 #function for home
 def home(request):
+    # Example usage of the metrics functions
+    increment_request_counter('GET', '/')
+    set_current_time()
     start_time = time.time()
-    increment_request_counter(request.method, request.path)  # Increment the request count
-    set_current_time()  # Set the current time metric
-
-    response = render(request, 'index.html')
+    
+    # Your view logic here
     
     duration = time.time() - start_time
-    observe_request_duration(request.path, duration)  # Observe the request duration
+    observe_request_duration('/', duration)
     
-    return response
+    return render(request, 'home.html')
 #function for register
 def register(request):
 
