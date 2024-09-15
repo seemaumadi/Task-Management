@@ -31,3 +31,4 @@ def update_metrics(request_method, request_endpoint, request_duration):
     increment_request_counter(request_method, request_endpoint)
     observe_request_duration(request_endpoint, request_duration)
     set_current_time()
+
