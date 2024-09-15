@@ -1,4 +1,5 @@
-from prometheus_client import Counter, Gauge, Summary, generate_latest, CollectorRegistry
+from prometheus_client import Counter, Gauge, Summary, generate_latest, CONTENT_TYPE_LATEST
+import time
 
 # Define a counter to track HTTP requests
 REQUESTS = Counter('http_requests_total', 'Total number of HTTP requests', ['method', 'endpoint'])
@@ -21,14 +22,15 @@ def set_current_time():
 def observe_request_duration(endpoint, duration):
     REQUEST_DURATION.labels(endpoint=endpoint).observe(duration)
 
-# Function to generate metrics data
+# Function to generate metrics data for Prometheus scraping
 def generate_metrics():
-    registry = CollectorRegistry()
-    return generate_latest(registry)
+    return generate_latest()  # This automatically includes all globally registered metrics
 
 # Example of updating metrics (to be used in your views or application logic)
 def update_metrics(request_method, request_endpoint, request_duration):
     increment_request_counter(request_method, request_endpoint)
     observe_request_duration(request_endpoint, request_duration)
     set_current_time()
+
+
 
