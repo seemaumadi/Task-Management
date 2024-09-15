@@ -14,6 +14,10 @@ REQUEST_DURATION = Summary('http_request_duration_seconds', 'Duration of HTTP re
 def increment_request_counter(method, endpoint):
     REQUESTS.labels(method=method, endpoint=endpoint).inc()
 
+def track_http_requests():
+    REQUESTS.inc()
+
+
 # Function to set the current time gauge
 def set_current_time():
     CURRENT_TIME.set(time.time())
