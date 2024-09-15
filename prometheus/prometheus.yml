@@ -7,4 +7,4 @@ scrape_configs:
     static_configs:
       - targets: 
         - 65.2.4.202:8000  # Specify the port Prometheus should scrape
-        - 65.2.4.202:8001  
+         
