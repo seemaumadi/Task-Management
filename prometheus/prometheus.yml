@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s  # How often Prometheus will scrape targets
+
+scrape_configs:
+  - job_name: 'monitoring'
+    metrics_path: /metrics  
+    static_configs:
+      - targets: 
+        - app_container:8000  # Specify the port Prometheus should scrape
+        - app_container1:8001  
