@@ -5,4 +5,4 @@ scrape_configs:
   - job_name: 'django'
     metrics_path: /metrics
     static_configs:
-      - targets: ['app_container:8000']
+      - targets: ['3.111.9.245:8000']
