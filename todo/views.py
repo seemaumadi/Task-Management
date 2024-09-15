@@ -9,7 +9,8 @@ from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
 from .metrics import REQUESTS, CURRENT_TIME, update_metrics
 from .forms import CreateUserForm, LoginForm, CreateTaskForm, UpdateUserForm
 from .models import Task
-from .metrics import track_http_requests, set_current_time
+from .metrics import track_http_requests, set_current_time, observe_request_duration, increment_request_counter
+
 
 
 
