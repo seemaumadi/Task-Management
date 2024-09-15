@@ -24,7 +24,7 @@ from django.http import HttpResponse
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('',include('todo.urls'))
+    path('',include('todo.urls')),
 
     path('', include('django_prometheus.urls')),
     
