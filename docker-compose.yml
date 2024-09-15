@@ -13,3 +13,28 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=taskly.settings  
     user: root
+
+    app1:
+    build: .
+    volumes:
+      - .:/django
+    ports:
+      - "8001:8001"
+    image: seema24/web-app:latest
+    container_name: app_container1
+    command: gunicorn taskly.wsgi:application --bind 0.0.0.0:8001
+    environment:
+      - DJANGO_SETTINGS_MODULE=taskly.settings
+    user: root
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus:/etc/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
+ 
