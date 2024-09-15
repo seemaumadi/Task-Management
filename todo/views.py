@@ -1,21 +1,27 @@
+import time
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseServerError
+from django.http import HttpResponse
 from django.contrib import messages
-
-
-from .forms import  CreateUserForm, LoginForm, CreateTaskForm, UpdateUserForm
-
-from django.contrib.auth.models import auth
-from django.contrib.auth import authenticate, login
-
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import auth
+from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
+from .metrics import REQUESTS, CURRENT_TIME, update_metrics
+from .forms import CreateUserForm, LoginForm, CreateTaskForm, UpdateUserForm
 from .models import Task
+from .metrics import track_http_requests, set_current_time
+
+
 
 
 # Create your views here.
-
+def metrics_view(request):
+    return HttpResponse(generate_latest(), content_type=CONTENT_TYPE_LATEST)
 #function for home
 def home(request):
+
+    track_http_requests()  # Increment the request count
+    set_current_time(time.time())  # Set the current time metric
 
     return render(request, 'index.html')
 
@@ -184,5 +190,24 @@ def user_Logout(request):
 
     return redirect("")
 
+def log_request_metrics(request):
+    start_time = time.time()
+    response = None
+    try:
+        response = request()
+    finally:
+        duration = time.time() - start_time
+        update_metrics(request.method, request.path, duration)
+    return response
 
+# Middleware to log metrics for all requests
+class MetricsMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
 
+    def __call__(self, request):
+        start_time = time.time()
+        response = self.get_response(request)
+        duration = time.time() - start_time
+        update_metrics(request.method, request.path, duration)
+        return response
