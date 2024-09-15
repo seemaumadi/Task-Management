@@ -31,7 +31,7 @@ def home(request):
     duration = time.time() - start_time
     observe_request_duration('/', duration)
     
-    return render(request, 'home.html')
+    return render(request, 'index.html')
 #function for register
 def register(request):
 
