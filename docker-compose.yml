@@ -1,20 +1,19 @@
-
-
+version: "3"
 services:
   app:
     build: .
     volumes:
       - .:/django 
     ports:
-      - "8000:8000"  
-    image: seema24/web-app:latest  
-    container_name: app_container  
+      - "8000:8000"
+    image: seema24/web-app:latest
+    container_name: app_container
     command: gunicorn taskly.wsgi:application --bind 0.0.0.0:8000
     environment:
-      - DJANGO_SETTINGS_MODULE=taskly.settings  
+      - DJANGO_SETTINGS_MODULE=taskly.settings
     user: root
 
-    app1:
+  app1:
     build: .
     volumes:
       - .:/django
@@ -37,4 +36,6 @@ services:
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
 
- 
+
+
+  
