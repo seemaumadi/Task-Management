@@ -17,14 +17,19 @@ from .metrics import track_http_requests, set_current_time
 # Create your views here.
 def metrics_view(request):
     return HttpResponse(generate_latest(), content_type=CONTENT_TYPE_LATEST)
+    
 #function for home
 def home(request):
+    start_time = time.time()
+    increment_request_counter(request.method, request.path)  # Increment the request count
+    set_current_time()  # Set the current time metric
 
-    track_http_requests()  # Increment the request count
-    set_current_time(time.time())  # Set the current time metric
-
-    return render(request, 'index.html')
-
+    response = render(request, 'index.html')
+    
+    duration = time.time() - start_time
+    observe_request_duration(request.path, duration)  # Observe the request duration
+    
+    return response
 #function for register
 def register(request):
 
