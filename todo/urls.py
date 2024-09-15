@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -22,5 +22,7 @@ urlpatterns = [
     path('delete-task/<str:pk>/', views.deleteTask, name= "delete-task"),
 
     path('logout', views.user_Logout, name= "logout"),
+
+    path('metrics/', include('django_prometheus.urls')),
     
 ]
