@@ -190,15 +190,6 @@ def user_Logout(request):
 
     return redirect("")
 
-def log_request_metrics(request):
-    start_time = time.time()
-    response = None
-    try:
-        response = request()
-    finally:
-        duration = time.time() - start_time
-        update_metrics(request.method, request.path, duration)
-    return response
 
 # Middleware to log metrics for all requests
 class MetricsMiddleware:
