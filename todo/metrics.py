@@ -17,7 +17,12 @@ def increment_request_counter(method, endpoint):
 # Function to set the current time gauge
 def set_current_time():
     CURRENT_TIME.set(time.time())
-
+    
+def track_http_requests(method, endpoint):
+    """
+    Increment the counter for HTTP requests.
+    """
+    REQUESTS.labels(method=method, endpoint=endpoint).inc()
 # Function to observe request duration
 def observe_request_duration(endpoint, duration):
     REQUEST_DURATION.labels(endpoint=endpoint).observe(duration)
