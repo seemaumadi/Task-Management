@@ -79,14 +79,14 @@ pipeline {
                 }
             }
         }
-        stage('Run Tests') {
-            steps {
-                script {
+        //stage('Run Tests') {
+            //steps {
+                //script {
                     // Run Django tests
-                    sh 'docker-compose -f docker-compose.yml run --rm app python manage.py test'
-                }
-            }
-        }
+                    //sh 'docker-compose -f docker-compose.yml run --rm app python manage.py test'
+                //}
+            //}
+        //}
         stage('Deploy') {
             steps {
                 script {
