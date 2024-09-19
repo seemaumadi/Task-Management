@@ -35,7 +35,7 @@ pipeline {
                     
                     // List Docker images to confirm the build
                     sh 'docker images'
-                    sh 'display image'
+                   
                 }
             }
         }
