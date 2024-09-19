@@ -18,14 +18,14 @@ pipeline {
                     url: 'https://github.com/seemaumadi/Task-management.git'
             }
         }
-        //stage("Sonarqube Analysis") {
-            //steps {
-                //withSonarQubeEnv('sonar-server') {
-                    //sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=django \
-                    //-Dsonar.projectKey=django'''
-                //}
-            //}
-        //}
+        stage("Sonarqube Analysis") {
+            steps {
+                withSonarQubeEnv('sonar-server') {
+                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=django \
+                    -Dsonar.projectKey=django'''
+                }
+            }
+        }
 
        stage('Docker Compose Build') {
             steps {
@@ -38,20 +38,7 @@ pipeline {
                 }
             }
         }
-        //stage('Tag Docker Image') {
-            //steps {
-                //script {
-                    // Use the actual image name and tag from the build output
-                    
-                    //def newImageRepo = 'seema24/web-app'
-                    //def newImageTag = 'latest'
-                    //def newTag = 'v1.0.0'
-                    
-                    // Tag the Docker image
-                    //sh "docker tag ${newImageRepo}:${newImageTag} ${newImageRepo}:${newTag}"
-                //}
-            //}
-        //}
+        
         stage('Docker Compose Push') {
             steps {
                 script {
