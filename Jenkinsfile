@@ -38,20 +38,20 @@ pipeline {
                 }
             }
         }
-        stage('Tag Docker Image') {
-            steps {
-                script {
+        //stage('Tag Docker Image') {
+            //steps {
+                //script {
                     // Use the actual image name and tag from the build output
                     
-                    def newImageRepo = 'seema24/web-app'
-                    def newImageTag = 'latest'
-                    def newTag = 'v1.0.0'
+                    //def newImageRepo = 'seema24/web-app'
+                    //def newImageTag = 'latest'
+                    //def newTag = 'v1.0.0'
                     
                     // Tag the Docker image
-                    sh "docker tag ${newImageRepo}:${newImageTag} ${newImageRepo}:${newTag}"
-                }
-            }
-        }
+                    //sh "docker tag ${newImageRepo}:${newImageTag} ${newImageRepo}:${newTag}"
+                //}
+            //}
+        //}
         stage('Docker Compose Push') {
             steps {
                 script {
