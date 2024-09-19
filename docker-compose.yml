@@ -9,7 +9,7 @@ services:
       - "8000:8000"
     image: seema24/web-app:latest  
     container_name: app_container
-    command: gunicorn taskly.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn --timeout 120 taskly.wsgi:application --bind 0.0.0.0:8000
     environment:
       - DJANGO_SETTINGS_MODULE=taskly.settings
     user: appuser
