@@ -56,7 +56,7 @@ pipeline {
             steps {
                 script {
                     // Log in to Docker registry
-                    docker.withRegistry(credentialsId: 'docker', toolName: 'docker') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker') {
                         // Push Docker images to registry using Docker Compose
                         sh 'docker-compose -f docker-compose.yml push'
                     }
