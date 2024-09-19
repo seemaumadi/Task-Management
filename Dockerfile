@@ -17,6 +17,6 @@ USER appuser
 COPY . .
 
 # Run the Django server
-CMD gunicorn taskly.wsgi:application --bind 0.0.0.0:8000
+CMD gunicorn --timeout 120 taskly.wsgi:application --bind 0.0.0.0:8000
 
 EXPOSE 8000
