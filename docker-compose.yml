@@ -12,7 +12,6 @@ services:
     command: gunicorn --timeout 120 taskly.wsgi:application --bind 0.0.0.0:8000
     environment:
       - DJANGO_SETTINGS_MODULE=taskly.settings
-    user: appuser
 
   prometheus:
     image: prom/prometheus:latest
