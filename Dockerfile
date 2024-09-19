@@ -9,9 +9,7 @@ WORKDIR /django
 # Install dependencies
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
-# Create a non-root user and switch to it
-RUN useradd -ms /bin/sh appuser
-USER root
+
 
 # Copy project files
 COPY . .
