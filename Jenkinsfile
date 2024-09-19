@@ -56,7 +56,7 @@ pipeline {
             steps {
                 script {
                     // Log in to Docker registry
-                    docker.withRegistry('https://index.docker.io/v1/', 'docker') {
+                    docker.withRegistry(credentialsId: 'docker', toolName: 'docker') {
                         // Push Docker images to registry using Docker Compose
                         sh 'docker-compose -f docker-compose.yml push'
                     }
@@ -83,8 +83,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Deploy application (e.g., pull new images and restart containers)
-                    // This will depend on your deployment strategy, such as using Docker Compose to restart the stack
+                
                     sh 'docker-compose -f docker-compose.yml down'
                     sh 'docker-compose -f docker-compose.yml up -d'
                 }
